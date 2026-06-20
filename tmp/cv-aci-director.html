@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kris Schlatter - Director of Technical Product Ownership</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyan: hsl(187, 74%, 32%);
+            --purple: hsl(270, 70%, 45%);
+            --text: #1a1a2e;
+            --bg: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            line-height: 1.5;
+            color: var(--text);
+            background: var(--bg);
+            padding: 0.6in;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid;
+            border-image: linear-gradient(90deg, var(--cyan), var(--purple)) 1;
+            padding-bottom: 12px;
+            margin-bottom: 16px;
+        }
+        .name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text);
+        }
+        .contact {
+            text-align: right;
+            font-size: 10px;
+        }
+        .contact a { color: var(--cyan); text-decoration: none; }
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--cyan);
+            margin: 16px 0 8px 0;
+            letter-spacing: 0.5px;
+        }
+        .summary {
+            font-size: 11px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        .competencies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+        .competency-tag {
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 9px;
+            font-weight: 500;
+        }
+        .job {
+            margin-bottom: 14px;
+        }
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+        .company {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            color: var(--purple);
+        }
+        .role {
+            font-weight: 500;
+            font-size: 11px;
+        }
+        .dates {
+            font-size: 10px;
+            color: #666;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        li {
+            position: relative;
+            padding-left: 14px;
+            margin-bottom: 4px;
+        }
+        li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+            font-weight: bold;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+        .skill-item {
+            font-size: 10px;
+        }
+        .education-item {
+            margin-bottom: 8px;
+        }
+        .degree {
+            font-weight: 600;
+            font-size: 11px;
+        }
+        .school {
+            color: var(--purple);
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <div class="name">KRIS SCHLATTER</div>
+        </div>
+        <div class="contact">
+            schlatter.kris@gmail.com<br>
+            linkedin.com/in/krisschlatter<br>
+            St. Charles, MO
+        </div>
+    </div>
+
+    <h2>Professional Summary</h2>
+    <p class="summary">
+        Technical product leader with 20+ years building and delivering complex payment platforms at scale. Deep expertise in translating product strategy into platform capabilities that power reliable, high-volume transaction environments. Track record of leading teams that reduced time-to-market by 15%, maintained 99.999% uptime, and turned around underperforming operations. Known for bridging engineering and business to deliver payment solutions that work reliably for millions of users across multiple regions.
+    </p>
+
+    <h2>Core Competencies</h2>
+    <div class="competencies">
+        <span class="competency-tag">Payments & Bill Payment Platforms</span>
+        <span class="competency-tag">Technical Product Strategy</span>
+        <span class="competency-tag">Cloud SaaS Delivery</span>
+        <span class="competency-tag">Team Leadership</span>
+        <span class="competency-tag">Agile & Backlog Management</span>
+        <span class="competency-tag">Cross-Functional Alignment</span>
+    </div>
+
+    <h2>Professional Experience</h2>
+
+    <div class="job">
+        <div class="job-header">
+            <div><span class="company">Mastercard</span> — O'Fallon, MO</div>
+            <div class="dates">2020 – 2026</div>
+        </div>
+        <div class="role">Global Product Integrator</div>
+        <ul>
+            <li>Owned product delivery for cloud-native payment flows processing millions of transactions daily, maintaining 99.999% uptime</li>
+            <li>Built feedback systems that translated implementation data into prioritized platform requirements and delivery roadmaps</li>
+            <li>Moved validation earlier in the process, cutting time-to-value by 6 months for new payment capabilities</li>
+            <li>Served as strategic lynchpin between engineering and regional leadership, aligning product priorities with delivery outcomes</li>
+            <li>Led international rollout of Open Banking solutions across 4 regions, reducing go-to-market time by 15%</li>
+        </ul>
+    </div>
+
+    <div class="job">
+        <div class="job-header">
+            <div><span class="company">Barry-Wehmiller</span> — St. Louis, MO</div>
+            <div class="dates">2014 – 2019</div>
+        </div>
+        <div class="role">Global Director Customer Care</div>
+        <ul>
+            <li>Built and led a global operations team that delivered measurable improvements in service quality and delivery predictability</li>
+            <li>Cut support volume by 60% and reduced recovery time from issues by 75% through systematic backlog management</li>
+            <li>Consolidated operations across 14 subsidiaries into unified delivery model with consistent Agile practices</li>
+            <li>Built executive dashboards that gave leadership clear visibility into platform performance and delivery metrics</li>
+            <li>Managed and developed teams across multiple countries, leveling up technical and delivery capabilities</li>
+        </ul>
+    </div>
+
+    <div class="job">
+        <div class="job-header">
+            <div><span class="company">Essence Healthcare</span> — St. Louis, MO</div>
+            <div class="dates">2007 – 2014</div>
+        </div>
+        <div class="role">Service Desk Manager</div>
+        <ul>
+            <li>Delivered SLA tracking systems that gave leadership real-time visibility into service levels and delivery performance</li>
+            <li>Kept critical healthcare platforms running 24/7 for hospitals and clinics</li>
+            <li>Modernized legacy support operations into proactive service model aligned with business priorities</li>
+        </ul>
+    </div>
+
+    <div class="job">
+        <div class="job-header">
+            <div><span class="company">Misys Healthcare Systems</span> — Raleigh, NC</div>
+            <div class="dates">2004 – 2007</div>
+        </div>
+        <div class="role">Account Manager Hospital Systems</div>
+        <ul>
+            <li>Managed enterprise accounts through full product lifecycle, from requirements through implementation and ongoing support</li>
+            <li>Recovered at-risk accounts by identifying root causes and delivering targeted improvements</li>
+            <li>Explained technical capabilities to business stakeholders in terms they could act on</li>
+        </ul>
+    </div>
+
+    <h2>Education</h2>
+    <div class="education-item">
+        <div class="degree">Graduate Certificate, System Models & Management</div>
+        <div class="school">University of Massachusetts — Lowell, MA</div>
+    </div>
+    <div class="education-item">
+        <div class="degree">M.B.A., Information Technology</div>
+        <div class="school">University of Massachusetts — Lowell, MA</div>
+    </div>
+    <div class="education-item">
+        <div class="degree">B.S.B.A, e-Business Administration & Marketing</div>
+        <div class="school">University of Phoenix — Phoenix, AZ</div>
+    </div>
+
+    <h2>Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-item">• Payment Platform Delivery</div>
+        <div class="skill-item">• Technical Product Roadmaps</div>
+        <div class="skill-item">• High-Availability Systems</div>
+        <div class="skill-item">• Team Development</div>
+        <div class="skill-item">• Stakeholder Alignment</div>
+        <div class="skill-item">• Agile & Backlog Management</div>
+    </div>
+</body>
+</html>

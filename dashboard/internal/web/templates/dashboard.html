@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Torch's Take - Job Board</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<style>
+  :root {
+    --base: #1e1e2e;
+    --surface: #313244;
+    --overlay: #45475a;
+    --text: #cdd6f4;
+    --subtext: #a6adc8;
+    --blue: #89b4fa;
+    --green: #a6e3a1;
+    --yellow: #f9e2af;
+    --red: #f38ba8;
+    --sky: #89dceb;
+    --mauve: #cba6f7;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--base);
+    color: var(--text);
+    padding: 24px;
+    min-height: 100vh;
+  }
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  h1 small {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--subtext);
+  }
+  .refresh-btn {
+    margin-left: auto;
+    background: var(--overlay);
+    color: var(--text);
+    border: none;
+    padding: 6px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    text-decoration: none;
+  }
+  .refresh-btn:hover { background: var(--surface); }
+
+  /* Metrics */
+  .metrics-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .metric-card {
+    background: var(--surface);
+    border-radius: 10px;
+    padding: 16px 20px;
+    text-align: center;
+  }
+  .metric-card .value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--blue);
+  }
+  .metric-card .label {
+    font-size: 0.8rem;
+    color: var(--subtext);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+  }
+  .metric-card.interviews .value { color: var(--green); }
+  .metric-card.applied .value { color: var(--sky); }
+  .metric-card.score .value { color: var(--yellow); }
+
+  /* Charts */
+  .charts-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .chart-container {
+    background: var(--surface);
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .chart-container h3 {
+    font-size: 0.85rem;
+    color: var(--subtext);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .chart-container canvas {
+    max-height: 260px;
+  }
+
+  /* Table */
+  .table-container {
+    background: var(--surface);
+    border-radius: 10px;
+    padding: 16px;
+    overflow-x: auto;
+  }
+  .table-container h3 {
+    font-size: 0.85rem;
+    color: var(--subtext);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  th {
+    text-align: left;
+    padding: 8px 10px;
+    color: var(--subtext);
+    font-weight: 600;
+    border-bottom: 1px solid var(--overlay);
+    white-space: nowrap;
+  }
+  td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--overlay);
+    white-space: nowrap;
+  }
+  tr:hover td { background: rgba(69, 71, 90, 0.5); }
+  .score-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.82rem;
+  }
+  .status-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.82rem;
+    font-weight: 500;
+  }
+  .company { color: var(--text); font-weight: 500; }
+  .role { color: var(--subtext); max-width: 280px; overflow: hidden; text-overflow: ellipsis; }
+  .score-col { text-align: center; }
+  .no-data {
+    text-align: center;
+    padding: 48px;
+    color: var(--subtext);
+  }
+  .job-link {
+    color: var(--blue);
+    text-decoration: none;
+    font-size: 0.8rem;
+  }
+  .job-link:hover { text-decoration: underline; }
+
+  /* Tooltip */
+  .has-tip {
+    position: relative;
+    cursor: help;
+  }
+  .has-tip .tip {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--overlay);
+    color: var(--text);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    white-space: normal;
+    width: 320px;
+    max-width: 80vw;
+    word-wrap: break-word;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    z-index: 100;
+    transition: opacity 0.15s ease, visibility 0.15s ease;
+    pointer-events: none;
+    text-align: left;
+    font-weight: 400;
+  }
+  .has-tip .tip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -6px;
+    border: 6px solid transparent;
+    border-top-color: var(--overlay);
+  }
+  .has-tip:hover .tip {
+    visibility: visible;
+    opacity: 1;
+  }
+  .has-tip:hover { overflow: visible; }
+
+  @media (max-width: 768px) {
+    .charts-row { grid-template-columns: 1fr; }
+    body { padding: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<h1>
+  Torch's Take - Job Board
+  <small>{{.Metrics.Total}} total &middot; {{.Metrics.Actionable}} active</small>
+  <a href="/api/refresh" class="refresh-btn">&#8635; Refresh</a>
+</h1>
+
+<div class="metrics-row">
+  <div class="metric-card">
+    <div class="value">{{.Metrics.Total}}</div>
+    <div class="label">Total Applications</div>
+  </div>
+  <div class="metric-card">
+    <div class="value">{{.Metrics.Actionable}}</div>
+    <div class="label">Active</div>
+  </div>
+  <div class="metric-card interviews">
+    <div class="value">{{index .Metrics.ByStatus "interview"}}</div>
+    <div class="label">Interviews</div>
+  </div>
+  <div class="metric-card score">
+    <div class="value">{{printf "%.1f" .Metrics.AvgScore}}</div>
+    <div class="label">Avg Score /5</div>
+  </div>
+  <div class="metric-card">
+    <div class="value">{{printf "%.1f" .Metrics.TopScore}}</div>
+    <div class="label">Top Score</div>
+  </div>
+  <div class="metric-card applied">
+    <div class="value">{{index .Metrics.ByStatus "applied"}}</div>
+    <div class="label">Applied</div>
+  </div>
+</div>
+
+<div class="charts-row">
+  <div class="chart-container">
+    <h3>Status Breakdown</h3>
+    <canvas id="statusChart"></canvas>
+  </div>
+  <div class="chart-container">
+    <h3>Score Distribution</h3>
+    <canvas id="scoreChart"></canvas>
+  </div>
+</div>
+
+<div class="table-container">
+  <h3>Applications (sorted by score)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Score</th>
+        <th>Company</th>
+        <th>Role</th>
+        <th>Status</th>
+        <th>Comp</th>
+        <th>URL</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{range $i, $app := .Applications}}
+      <tr>
+        <td style="color:var(--subtext);font-size:0.8rem">{{inc $i}}</td>
+        <td class="score-col">
+          {{if gt $app.Score 0.0}}
+          <span class="score-badge" style="background:{{scoreColor $app.Score}}20;color:{{scoreColor $app.Score}}">
+            {{printf "%.1f" $app.Score}}
+          </span>
+          {{else}}
+          <span style="color:var(--subtext);font-size:0.75rem">—</span>
+          {{end}}
+        </td>
+        <td class="company">{{$app.Company}}</td>
+        <td class="role has-tip">
+          {{$app.Role}}
+          {{if $app.Archetype}}<span style="color:var(--mauve);font-size:0.7rem;display:block;opacity:0.7">{{$app.Archetype}}</span>{{end}}
+          {{if $app.TlDr}}<span class="tip">{{$app.TlDr}}</span>{{end}}
+        </td>
+        <td>
+          <span class="status-badge" style="background:{{statusColor $app.Status}}20;color:{{statusColor $app.Status}}">
+            {{$app.Status}}
+          </span>
+        </td>
+        <td style="color:var(--yellow);font-size:0.82rem">{{if $app.CompEstimate}}{{$app.CompEstimate}}{{else}}<span style="color:var(--overlay)">—</span>{{end}}</td>
+        <td>
+          {{if $app.JobURL}}
+          <a href="{{$app.JobURL}}" target="_blank" class="job-link">&#8599;</a>
+          {{else}}
+          <span style="color:var(--overlay)">—</span>
+          {{end}}
+        </td>
+      </tr>
+      {{else}}
+      <tr><td colspan="7" class="no-data">No applications found</td></tr>
+      {{end}}
+    </tbody>
+  </table>
+</div>
+
+<script>
+const statusData = {
+  labels: [{{range $i, $s := .Statuses}}{{if $i}},{{end}}"{{$s.Name}} ({{$s.Count}})"{{end}}],
+  datasets: [{
+    data: [{{range $i, $s := .Statuses}}{{if $i}},{{end}}{{$s.Count}}{{end}}],
+    backgroundColor: [{{range $i, $s := .Statuses}}{{if $i}},{{end}}"{{$s.Color}}"{{end}}],
+    borderWidth: 0,
+  }]
+};
+
+new Chart(document.getElementById('statusChart'), {
+  type: 'doughnut',
+  data: statusData,
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: {
+        position: 'right',
+        labels: { color: '#cdd6f4', padding: 12, font: { size: 12 } }
+      }
+    }
+  }
+});
+
+const scoreData = {
+  labels: [{{range $i, $b := .ScoreBuckets}}{{if $i}},{{end}}"{{$b.Label}}"{{end}}],
+  datasets: [{
+    label: 'Applications',
+    data: [{{range $i, $b := .ScoreBuckets}}{{if $i}},{{end}}{{$b.Count}}{{end}}],
+    backgroundColor: '#89b4fa',
+    borderRadius: 4,
+  }]
+};
+
+new Chart(document.getElementById('scoreChart'), {
+  type: 'bar',
+  data: scoreData,
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { display: false }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: { color: '#a6adc8', stepSize: 1 },
+        grid: { color: '#313244' }
+      },
+      x: {
+        ticks: { color: '#a6adc8' },
+        grid: { display: false }
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>

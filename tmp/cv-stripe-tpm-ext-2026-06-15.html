@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kris Schlatter — CV</title>
+<style>
+  @font-face {
+    font-family: 'Space Grotesk';
+    src: url('./fonts/space-grotesk-latin.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Space Grotesk';
+    src: url('./fonts/space-grotesk-latin-ext.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('./fonts/dm-sans-latin.woff2') format('woff2');
+    font-weight: 100 1000;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('./fonts/dm-sans-latin-ext.woff2') format('woff2');
+    font-weight: 100 1000;
+    font-style: normal;
+    font-display: swap;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #1a1a2e;
+    background: #ffffff;
+    padding: 0;
+    margin: 0;
+  }
+  .page { width: 100%; max-width: 816px; margin: 0 auto; padding: 2px 0; }
+  .header { margin-bottom: 20px; }
+  .header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a2e;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+    line-height: 1.1;
+  }
+  .header-gradient {
+    height: 2px;
+    background: linear-gradient(to right, hsl(187, 74%, 32%), hsl(270, 70%, 45%));
+    border-radius: 1px;
+    margin-bottom: 10px;
+  }
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10.5px;
+    line-height: 1.4;
+    color: #555;
+  }
+  .contact-row a { color: #555; text-decoration: none; }
+  .contact-row .separator { color: #ccc; }
+  .section { margin-bottom: 18px; }
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: hsl(187, 74%, 32%);
+    border-bottom: 1.5px solid #e2e2e2;
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+  .summary-text {
+    font-size: 11px;
+    line-height: 1.7;
+    color: #2f2f2f;
+  }
+  a { white-space: nowrap; }
+  .competencies-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .competency-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    color: hsl(187, 74%, 28%);
+    background: hsl(187, 40%, 95%);
+    padding: 4px 10px;
+    border-radius: 3px;
+    border: 1px solid hsl(187, 40%, 88%);
+  }
+  .job { margin-bottom: 14px; }
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .job-company {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: hsl(270, 70%, 45%);
+  }
+  .job-period {
+    font-size: 10.5px;
+    color: #777;
+    white-space: nowrap;
+  }
+  .job-role {
+    font-size: 11px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+  }
+  .job ul { padding-left: 18px; margin-top: 6px; }
+  .job li {
+    font-size: 10.5px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 4px;
+  }
+  .job li strong { font-weight: 600; }
+  .certs-container { display: table; width: 100%; }
+  .cert-item { display: table-row; }
+  .cert-title, .cert-org, .cert-year {
+    display: table-cell;
+    padding-bottom: 6px;
+  }
+  .cert-title {
+    font-size: 10.5px;
+    font-weight: 500;
+    color: #333;
+  }
+  .cert-org {
+    color: hsl(270, 70%, 45%);
+    padding-left: 16px;
+  }
+  .cert-year {
+    font-size: 10px;
+    color: #777;
+    white-space: nowrap;
+    padding-left: 16px;
+  }
+  .edu-item { margin-bottom: 8px; }
+  .edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .edu-title { font-weight: 600; font-size: 11px; color: #333; }
+  .edu-org { color: hsl(270, 70%, 45%); font-weight: 500; }
+  .edu-year { font-size: 10px; color: #777; white-space: nowrap; }
+  .avoid-break { break-inside: avoid; page-break-inside: avoid; }
+  .job { break-inside: avoid; page-break-inside: avoid; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header avoid-break">
+    <h1>Kris Schlatter</h1>
+    <div class="header-gradient"></div>
+    <div class="contact-row">
+      <span>schlatter.kris@gmail.com</span>
+      <span class="separator">|</span>
+      <a href="https://linkedin.com/in/krisschlatter">linkedin.com/in/krisschlatter</a>
+      <span class="separator">|</span>
+      <span>St. Charles, MO</span>
+      <span class="separator">|</span>
+      <span>636.627.9860</span>
+    </div>
+  </div>
+
+  <div class="section avoid-break">
+    <div class="section-title">Professional Summary</div>
+    <div class="summary-text">
+      Product-focused Technical Program Manager with over 15 years of leadership driving cross-organizational platform programs, extensibility frameworks, and global product delivery at fintech scale. Served as the operational bridge between R&D and market delivery at Mastercard, owning critical path for API platform launches across 5 regions to a $1.6B+ portfolio. Built unified enablement frameworks delivering 15% faster time-to-market. Led matrix decisions across Product, Engineering, Legal, Security, and GTM functions in highly regulated environments. Expert in program strategy, cross-org execution, and translating complex technical trade-offs into executive decisions.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Core Competencies</div>
+    <div class="competencies-grid">
+      <span class="competency-tag">Technical Program Management</span>
+      <span class="competency-tag">Cross-Org Program Execution</span>
+      <span class="competency-tag">API Platform Delivery</span>
+      <span class="competency-tag">Product Operations</span>
+      <span class="competency-tag">Critical Path Management</span>
+      <span class="competency-tag">Enterprise Customer Strategy</span>
+      <span class="competency-tag">Matrix Leadership</span>
+      <span class="competency-tag">Global GTM Enablement</span>
+      <span class="competency-tag">Executive Communication</span>
+      <span class="competency-tag">Program Strategy & Roadmap</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Experience</div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Mastercard</span>
+        <span class="job-period">January 2020 – Present</span>
+      </div>
+      <div class="job-role">Global Product Integration Director</div>
+      <ul>
+        <li><strong>Cross-Org Program Leadership:</strong> Served as strategic lynchpin between Product Development and Regional Delivery, aligning matrix teams across 5 regions and 10+ functions (Product, R&D, Engineering, Legal, Finance, Security, Web, Regional Delivery) to execute complex cross-organizational platform programs in highly regulated environments.</li>
+        <li><strong>Critical Path Ownership:</strong> Owned the critical path for major API platform launches — driving scope decisions, negotiating trade-offs, and resolving cross-team dependencies that scaled net-new fintech and Open Banking solutions from zero to $1.6B across NAM, LAC, EU, EEMEA, and AP.</li>
+        <li><strong>Platform Enablement:</strong> Built and executed a unified global enablement framework for API-driven platform solutions that accelerated product delivery and time-to-market by 15% across diverse international jurisdictions.</li>
+        <li><strong>Program Strategy & Roadmap Influence:</strong> Institutionalized a continuous global feedback architecture that captured real-world implementation data and transformed it into actionable R&D priorities, shaping product and engineering roadmaps based on enterprise customer needs.</li>
+        <li><strong>Product Operations:</strong> Introduced data-driven Shift-Left operational strategy using Tableau, PowerBI, and Jira Product Discovery; built revenue-to-feature mapping engines delivering granular visibility into product-level ROI and accelerating value realization by 6 months.</li>
+        <li><strong>Executive Communication:</strong> Translated complex financial, cryptographic, and algorithmic architecture into clear, actionable executive strategy and training programs for international stakeholders across engineering, product, and C-suite audiences.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Barry-Wehmiller Companies, Inc.</span>
+        <span class="job-period">October 2014 – October 2018</span>
+      </div>
+      <div class="job-role">Global Director of Customer Care</div>
+      <ul>
+        <li><strong>Operational Transformation:</strong> Led comprehensive global IT service turnaround, converting lowest-rated unit into top-tier corporate partner through process re-engineering and team development.</li>
+        <li><strong>Data-Driven Process Improvement:</strong> Designed organizational readiness framework that collapsed 3,500 monthly tickets to under 1,000 via automation, targeted training, and self-service utilities.</li>
+        <li><strong>Efficiency Gains:</strong> Supervised workflow optimizations that slashed MTTR by 75% — from 4-6 weeks to under 1 day for 90% of technical incidents.</li>
+        <li><strong>Global Standards:</strong> Standardized disparate ITSM processes across independent international business units, reallocating 2.0 FTE to high-value strategic growth initiatives.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Lumeris</span>
+        <span class="job-period">October 2007 – October 2014</span>
+      </div>
+      <div class="job-role">Service Desk Manager & Business Systems Administrator</div>
+      <ul>
+        <li>Modernized legacy call center into proactive, ITSM-aligned service department directing multi-site US and India operations.</li>
+        <li>Established governance policies, SLAs, and security standards for healthcare compliance.</li>
+        <li>Governed Always-Available service strategies achieving zero-interruption delivery for business-critical platforms.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section avoid-break">
+    <div class="section-title">Education</div>
+    <div class="edu-item">
+      <div class="edu-header">
+        <span class="edu-title">MBA, Information Technology</span>
+        <span class="edu-org">University of Massachusetts Lowell</span>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-header">
+        <span class="edu-title">BS, Marketing and e-Business Administration</span>
+        <span class="edu-org">University of Phoenix</span>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-header">
+        <span class="edu-title">Graduate Certificate, Systems Models and Management</span>
+        <span class="edu-org">University of Massachusetts Lowell</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section avoid-break">
+    <div class="section-title">Certifications</div>
+    <div class="certs-container">
+      <div class="cert-item">
+        <span class="cert-title">Aha! Product Management Professional Certificate</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-title">Agentic AI Certification</span>
+        <span class="cert-org">DeepLearning.AI</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-title">Fundamentals of Agentic AI: Business Implications</span>
+        <span class="cert-org">DeepLearning.AI</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-title">ITIL Foundation Certification</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kris Schlatter — CV</title>
+<style>
+  @font-face {
+    font-family: 'Space Grotesk';
+    src: url('./fonts/space-grotesk-latin.woff2') format('woff2');
+    font-weight: 300 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  @font-face {
+    font-family: 'Space Grotesk';
+    src: url('./fonts/space-grotesk-latin-ext.woff2') format('woff2');
+    font-weight: 300 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('./fonts/dm-sans-latin.woff2') format('woff2');
+    font-weight: 100 1000;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('./fonts/dm-sans-latin-ext.woff2') format('woff2');
+    font-weight: 100 1000;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #1a1a2e;
+    background: #ffffff;
+    padding: 0;
+    margin: 0;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 2px 0;
+  }
+
+  .header {
+    margin-bottom: 20px;
+  }
+
+  .header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a2e;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+    line-height: 1.1;
+  }
+
+  .header-gradient {
+    height: 2px;
+    background: linear-gradient(to right, hsl(187, 74%, 32%), hsl(270, 70%, 45%));
+    border-radius: 1px;
+    margin-bottom: 10px;
+  }
+
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10.5px;
+    line-height: 1.4;
+    color: #555;
+  }
+
+  .contact-row a {
+    color: #555;
+    text-decoration: none;
+  }
+
+  .contact-row .separator {
+    color: #ccc;
+  }
+
+  .section {
+    margin-bottom: 18px;
+  }
+
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: hsl(187, 74%, 32%);
+    border-bottom: 1.5px solid #e2e2e2;
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .summary-text {
+    font-size: 11px;
+    line-height: 1.7;
+    color: #2f2f2f;
+  }
+
+  a {
+    white-space: nowrap;
+  }
+
+  .competencies-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .competency-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    color: hsl(187, 74%, 28%);
+    background: hsl(187, 40%, 95%);
+    padding: 4px 10px;
+    border-radius: 3px;
+    border: 1px solid hsl(187, 40%, 88%);
+  }
+
+  .job {
+    margin-bottom: 14px;
+  }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+
+  .job-company {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: hsl(270, 70%, 45%);
+  }
+
+  .job-period {
+    font-size: 10.5px;
+    color: #777;
+    white-space: nowrap;
+  }
+
+  .job-role {
+    font-size: 11px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+  }
+
+  .job-location {
+    font-size: 10px;
+    color: #888;
+  }
+
+  .job ul {
+    padding-left: 18px;
+    margin-top: 6px;
+  }
+
+  .job li {
+    font-size: 10.5px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 4px;
+  }
+
+  .job li strong {
+    font-weight: 600;
+  }
+
+  .project {
+    margin-bottom: 12px;
+  }
+
+  .project-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: hsl(270, 70%, 45%);
+  }
+
+  .project-badge {
+    font-size: 9px;
+    font-weight: 500;
+    color: hsl(187, 74%, 32%);
+    background: hsl(187, 40%, 95%);
+    padding: 1px 6px;
+    border-radius: 2px;
+    margin-left: 6px;
+  }
+
+  .project-desc {
+    font-size: 10.5px;
+    color: #444;
+    margin-top: 3px;
+    line-height: 1.55;
+  }
+
+  .project-tech {
+    font-size: 9.5px;
+    color: #888;
+    margin-top: 3px;
+  }
+
+  .edu-item {
+    margin-bottom: 8px;
+  }
+
+  .edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .edu-title {
+    font-weight: 600;
+    font-size: 11px;
+    color: #333;
+  }
+
+  .edu-org {
+    color: hsl(270, 70%, 45%);
+    font-weight: 500;
+  }
+
+  .edu-year {
+    font-size: 10px;
+    color: #777;
+    white-space: nowrap;
+  }
+
+  .edu-desc {
+    font-size: 10px;
+    color: #666;
+    margin-top: 2px;
+    line-height: 1.5;
+  }
+
+  .cert-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+
+  .cert-title {
+    font-size: 10.5px;
+    font-weight: 500;
+    color: #333;
+  }
+
+  .cert-org {
+    color: hsl(270, 70%, 45%);
+  }
+
+  .cert-year {
+    font-size: 10px;
+    color: #777;
+    white-space: nowrap;
+  }
+
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+  }
+
+  .skill-item {
+    font-size: 10.5px;
+    color: #444;
+  }
+
+  .skill-category {
+    font-weight: 600;
+    color: #333;
+    font-size: 10.5px;
+  }
+
+  @media print {
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      padding: 0;
+    }
+  }
+
+  .avoid-break,
+  .job,
+  .project,
+  .edu-item,
+  .cert-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header avoid-break">
+    <h1>Kris Schlatter</h1>
+    <div class="header-gradient"></div>
+    <div class="contact-row">
+      <span>schlatter.kris@gmail.com</span>
+      <span class="separator">|</span>
+      <a href="https://linkedin.com/in/krisschlatter">linkedin.com/in/krisschlatter</a>
+      <span class="separator">|</span>
+      <a href="https://github.com/schlatterkris">github.com/schlatterkris</a>
+      <span class="separator">|</span>
+      <span>St. Charles, MO</span>
+    </div>
+  </div>
+
+  <!-- PROFESSIONAL SUMMARY -->
+  <div class="section avoid-break">
+    <div class="section-title">Professional Summary</div>
+    <div class="summary-text">
+Senior AI Product Manager and AI Infrastructure leader with 20+ years driving platform reliability and customer experience at enterprise scale. Expert at bridging R&D innovation and global market adoption for complex, always-available cloud ecosystems. Pioneered "Shift-Left" operational strategies that accelerated value realization by 6 months and reduced time-to-market by 15% across highly regulated environments. Proven track record maintaining 99.999% availability for cloud-native payment flows, demonstrating deep expertise in Site Reliability Engineering, telemetry, and service health monitoring. Now applying systems thinking to Azure HPC and AI supercomputing platforms to ensure world-class customer experience for one of the largest AI infrastructure organizations in the industry.
+    </div>
+  </div>
+
+  <!-- CORE COMPETENCIES -->
+  <div class="section">
+    <div class="section-title">Core Competencies</div>
+    <div class="competencies-grid">
+      <span class="competency-tag">AI Platform & HPC Infrastructure</span>
+      <span class="competency-tag">Site Reliability Engineering (SRE)</span>
+      <span class="competency-tag">Product Roadmap & Backlog Management</span>
+      <span class="competency-tag">Stakeholder Management</span>
+      <span class="competency-tag">Service Health & Telemetry</span>
+      <span class="competency-tag">Customer Experience (CSAT)</span>
+      <span class="competency-tag">Global Deployment Strategy</span>
+      <span class="competency-tag">High Availability / Reliability</span>
+    </div>
+  </div>
+
+  <!-- WORK EXPERIENCE -->
+  <div class="section">
+    <div class="section-title">Work Experience</div>
+
+    <div class="job avoid-break">
+      <div class="job-header">
+        <span class="job-company">Mastercard</span>
+        <span class="job-period">2020 - 2026</span>
+      </div>
+      <div class="job-role">Global Product Integrator — R&D Strategy & AI Platform Leadership</div>
+      <div class="job-location">O'Fallon, MO</div>
+      <ul>
+        <li><strong>AI Infrastructure & Service Health:</strong> Directed production readiness for high-stakes financial ecosystems, maintaining 99.999% availability for cloud-native payment flows and emerging AI-powered transaction services; partnered with SRE teams to implement telemetry-driven reliability metrics.</li>
+        <li><strong>Product Roadmap & Backlog Management:</strong> Institutionalized a global feedback architecture and automated dashboard suite that transformed real-world implementation telemetry into prioritized R&D requirements, directly shaping the long-term product vision.</li>
+        <li><strong>Shift-Left Operational Excellence:</strong> Pioneered a data-driven validation framework that moved critical support and testing cycles closer to the initial customer touchpoint, accelerating value realization by 6 months.</li>
+        <li><strong>Global Platform GTM:</strong> Designed and executed the enablement strategy for international Open Banking solutions, reducing time-to-market by 15% across diverse regulatory jurisdictions; collaborated cross-functionally with engineering, product, and regional leadership.</li>
+        <li><strong>Stakeholder Management:</strong> Served as the strategic lynchpin between Product Development and Global Delivery, negotiating technical and commercial priorities between R&D and regional C-Suite leadership to align product performance with corporate SLAs.</li>
+      </ul>
+    </div>
+
+    <div class="job avoid-break">
+      <div class="job-header">
+        <span class="job-company">Barry-Wehmiller</span>
+        <span class="job-period">2014 - 2019</span>
+      </div>
+      <div class="job-role">Global Director Customer Care — Operational Turnaround & Process Engineering</div>
+      <div class="job-location">St. Louis, MO</div>
+      <ul>
+        <li><strong>Cross-Functional Hardware Programs:</strong> Recruited to lead a comprehensive global turnaround of IT operations for equipment manufacturing, transforming the organization's lowest-rated unit into a top-tier service partner by aligning technical KPIs with corporate strategic goals.</li>
+        <li><strong>Process Engineering & Reliability:</strong> Engineered a proactive, ITSM-aligned support framework that reduced critical incident volume by 60% and improved Mean Time to Recover (MTTR) by 75%, directly improving customer experience metrics.</li>
+        <li><strong>Telemetry & Executive Dashboards:</strong> Designed and delivered executive-level reporting suites to monitor real-time system performance, enabling data-driven identification of bottlenecks and proactive risk mitigation.</li>
+        <li><strong>Enterprise Consolidation:</strong> Centralized fragmented support operations across 14 independent global subsidiaries into a unified service model, optimizing human capital and reallocating 2.0 FTE toward strategic growth initiatives.</li>
+        <li><strong>Change Management & Adoption:</strong> Standardized global ITSM processes (Incident, Problem, and Change Management) across diverse international business units to eliminate operational friction and ensure seamless cross-functional collaboration.</li>
+      </ul>
+    </div>
+
+    <div class="job avoid-break">
+      <div class="job-header">
+        <span class="job-company">Essence Healthcare / Lumeris</span>
+        <span class="job-period">2007 - 2014</span>
+      </div>
+      <div class="job-role">Service Desk Manager — Healthcare IT & Compliance</div>
+      <div class="job-location">St. Louis, MO</div>
+      <ul>
+        <li><strong>High-Availability Operations:</strong> Directed "Always-Available" service models for mission-critical financial and healthcare platforms, ensuring zero-interruption delivery for a global user base with stringent SLA requirements.</li>
+        <li><strong>Compliance & Governance:</strong> Established department-wide security policies and governance standards, aligning all IT operations with stringent HIPAA and healthcare compliance requirements.</li>
+        <li><strong>Enterprise Ecosystem Architecture:</strong> Engineered a unified ticketing and reporting ecosystem that established the advanced SLA tracking and telemetry required for executive-level, data-driven decision-making.</li>
+        <li><strong>Disaster Recovery:</strong> Spearheaded Disaster Recovery (DR) and Business Continuity Planning (BCP), documenting and stress-testing critical failover procedures for high-stakes healthcare functions.</li>
+      </ul>
+    </div>
+
+    <div class="job avoid-break">
+      <div class="job-header">
+        <span class="job-company">Misys Healthcare Systems</span>
+        <span class="job-period">2004 - 2007</span>
+      </div>
+      <div class="job-role">Account Manager Hospital Systems — Enterprise Software & GTM</div>
+      <div class="job-location">Raleigh, NC</div>
+      <ul>
+        <li><strong>Portfolio Value Maximization:</strong> Directed a multi-million dollar account portfolio through the full software lifecycle, overseeing technical requirements and enterprise-wide deployment for complex clinical and financial systems.</li>
+        <li><strong>Customer Success & Training:</strong> Provided enterprise-wide training on new software, consistently earning praise for the ability to explain complex technical and financial concepts to diverse audiences, driving adoption and user satisfaction.</li>
+        <li><strong>At-Risk Product Recovery:</strong> Rescued high-value, "at-risk" accounts by engineering targeted intervention strategies and customized efficiency improvements to prevent churn and restore client trust.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section avoid-break">
+    <div class="section-title">Education</div>
+    <div class="edu-item">
+      <div class="edu-header">
+        <span class="edu-title">Graduate Certificate, System Models & Management</span>
+        <span class="edu-year">University of Massachusetts Lowell</span>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-header">
+        <span class="edu-title">M.B.A., Information Technology</span>
+        <span class="edu-year">University of Massachusetts Lowell</span>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-header">
+        <span class="edu-title">B.S.B.A, e-Business Administration & Marketing</span>
+        <span class="edu-year">University of Phoenix</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section avoid-break">
+    <div class="section-title">Skills</div>
+    <div class="skills-grid">
+      <span class="skill-item"><span class="skill-category">Product:</span> Roadmap, Backlog Management, Feature Gaps, Stakeholder Management, CSAT, Adoption</span>
+      <span class="skill-item"><span class="skill-category">AI/Cloud:</span> Azure, AI Infrastructure, HPC concepts, Cloud-native platforms, Service Health</span>
+      <span class="skill-item"><span class="skill-category">Operations:</span> SRE, Telemetry, ITSM, MTTR, 99.999% Availability, Deployment Strategy</span>
+      <span class="skill-item"><span class="skill-category">Leadership:</span> Cross-functional programs, Change Management, Executive Communication, Training</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

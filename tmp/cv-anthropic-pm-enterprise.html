@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kris Schlatter — CV</title>
+<style>
+  @font-face { font-family: 'Roboto'; src: url('./fonts/roboto-latin.woff2') format('woff2'); font-weight: 100 900; font-style: normal; font-display: swap; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'Roboto'; src: url('./fonts/roboto-latin-ext.woff2') format('woff2'); font-weight: 100 900; font-style: normal; font-display: swap; unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: 'DM Sans'; src: url('./fonts/dm-sans-latin.woff2') format('woff2'); font-weight: 100 1000; font-style: normal; font-display: swap; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: 'DM Sans'; src: url('./fonts/dm-sans-latin-ext.woff2') format('woff2'); font-weight: 100 1000; font-style: normal; font-display: swap; unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: 'DM Sans', sans-serif; font-size: 11px; line-height: 1.5; color: #1a1a2e; background: #ffffff; padding: 0; margin: 0; }
+  .page { width: 100%; max-width: 8.5in; margin: 0 auto; padding: 2px 0; }
+  .header { margin-bottom: 20px; }
+  .header h1 { font-family: 'Roboto', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a2e; letter-spacing: -0.02em; margin-bottom: 6px; line-height: 1.1; }
+  .header-gradient { height: 2px; background: linear-gradient(to right, hsl(187, 74%, 32%), hsl(270, 70%, 45%)); border-radius: 1px; margin-bottom: 10px; }
+  .contact-row { display: flex; flex-wrap: wrap; gap: 8px 14px; font-family: 'DM Sans', sans-serif; font-size: 10.5px; line-height: 1.4; color: #555; }
+  .contact-row a { color: #555; text-decoration: none; }
+  .contact-row .separator { color: #ccc; }
+  .section { margin-bottom: 18px; }
+  .section-title { font-family: 'Roboto', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: hsl(187, 74%, 32%); border-bottom: 1.5px solid #e2e2e2; padding-bottom: 4px; margin-bottom: 10px; line-height: 1.2; }
+  .summary-text { font-size: 11px; line-height: 1.7; color: #2f2f2f; }
+  a { white-space: nowrap; }
+  .competencies-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .competency-tag { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 500; color: hsl(187, 74%, 28%); background: hsl(187, 40%, 95%); padding: 4px 10px; border-radius: 3px; border: 1px solid hsl(187, 40%, 88%); }
+  .job { margin-bottom: 14px; }
+  .job-header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 4px; }
+  .job-company { font-family: 'Roboto', sans-serif; font-size: 12.5px; font-weight: 600; color: hsl(270, 70%, 45%); }
+  .job-period { font-size: 10.5px; color: #777; white-space: nowrap; }
+  .job-role { font-size: 11px; font-weight: 600; color: #333; margin-bottom: 6px; }
+  .job-location { font-size: 10px; color: #888; }
+  .job ul { padding-left: 18px; margin-top: 6px; }
+  .job li { font-size: 10.5px; line-height: 1.6; color: #333; margin-bottom: 4px; }
+  .job li strong { font-weight: 600; }
+  .project { margin-bottom: 12px; }
+  .project-title { font-family: 'Roboto', sans-serif; font-size: 11.5px; font-weight: 600; color: hsl(270, 70%, 45%); }
+  .project-badge { font-size: 9px; font-weight: 500; color: hsl(187, 74%, 32%); background: hsl(187, 40%, 95%); padding: 1px 6px; border-radius: 2px; margin-left: 6px; }
+  .project-desc { font-size: 10.5px; color: #444; margin-top: 3px; line-height: 1.55; }
+  .project-tech { font-size: 9.5px; color: #888; margin-top: 3px; }
+  .edu-item { margin-bottom: 8px; }
+  .edu-header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .edu-title { font-weight: 600; font-size: 11px; color: #333; }
+  .edu-org { color: hsl(270, 70%, 45%); font-weight: 500; }
+  .edu-year { font-size: 10px; color: #777; white-space: nowrap; }
+  .edu-desc { font-size: 10px; color: #666; margin-top: 2px; line-height: 1.5; }
+  .cert-item { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 6px; }
+  .cert-title { font-size: 10.5px; font-weight: 500; color: #333; }
+  .cert-org { color: hsl(270, 70%, 45%); }
+  .cert-year { font-size: 10px; color: #777; white-space: nowrap; }
+  .skills-grid { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+  .skill-item { font-size: 10.5px; color: #444; }
+  .skill-category { font-weight: 600; color: #333; font-size: 10.5px; }
+  @media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } .page { padding: 0; } }
+  .avoid-break, .job, .project, .edu-item, .cert-item { break-inside: avoid; page-break-inside: avoid; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header avoid-break">
+    <h1>Kris Schlatter</h1>
+    <div class="header-gradient"></div>
+    <div class="contact-row">
+      <span>schlatter.kris@gmail.com</span>
+      <span class="separator">|</span>
+      <a href="https://linkedin.com/in/krisschlatter">linkedin.com/in/krisschlatter</a>
+      <span class="separator">|</span>
+      <a href="https://github.com/schlatterkris">github.com/schlatterkris</a>
+      <span class="separator">|</span>
+      <span>St. Charles, MO</span>
+    </div>
+  </div>
+  <div class="section avoid-break">
+    <div class="section-title">Professional Summary</div>
+    <div class="summary-text">
+      Enterprise Product leader with 15+ years building and scaling platform capabilities in regulated, security-conscious environments. As Global Product Integration Director at Mastercard, governed enterprise compliance across 5 global regions, maintained 99.999% availability, and led security incident management for core fintech platforms. Deep expertise in enterprise security concepts (RBAC, audit logging, encryption, data residency), compliance frameworks (SOC 2, GDPR, HIPAA), and regulated industry requirements. Agentic AI certified. Seeking to build enterprise-grade AI platform capabilities at Anthropic.
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">Core Competencies</div>
+    <div class="competencies-grid">
+      <span class="competency-tag">Enterprise Product Management</span>
+      <span class="competency-tag">Security &amp; Compliance</span>
+      <span class="competency-tag">SOC 2 / HIPAA / GDPR / FedRAMP</span>
+      <span class="competency-tag">RBAC &amp; Access Control</span>
+      <span class="competency-tag">Audit Logging &amp; Data Residency</span>
+      <span class="competency-tag">Incident Governance</span>
+      <span class="competency-tag">Enterprise Platform Architecture</span>
+      <span class="competency-tag">Regulated Industry Expertise</span>
+      <span class="competency-tag">Cross-Functional Leadership</span>
+      <span class="competency-tag">Agentic AI</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">Professional Experience</div>
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Mastercard</span>
+        <span class="job-period">Jan 2020 - Present</span>
+      </div>
+      <div class="job-role">Global Product Integration Director</div>
+      <ul>
+        <li><strong>Enterprise security &amp; compliance:</strong> Directed incident governance and crisis resolution for core financial platforms across 5 regulated global regions, maintaining <strong>99.999% availability</strong> and zero compliance breaches.</li>
+        <li><strong>Platform capabilities:</strong> Led the integration of API-driven fintech solutions with enterprise-grade security, data residency, and compliance requirements spanning NAM, LAC, EU, EEMEA, and AP markets.</li>
+        <li><strong>Regulatory expertise:</strong> Navigated complex financial regulations, data protection laws (GDPR), and regional compliance frameworks across diverse international jurisdictions.</li>
+        <li><strong>Admin &amp; governance:</strong> Established global enablement framework standardizing access controls, audit processes, and governance policies for cross-regional product operations.</li>
+        <li><strong>Enterprise stakeholder management:</strong> Aligned Product, R&D, Engineering, Legal, Finance, Security, and Regional Delivery teams to meet enterprise launch requirements under regulatory scrutiny.</li>
+        <li><strong>Data residency &amp; encryption:</strong> Developed training programs on cryptography, security certificates, and regional regulations to accelerate enterprise platform adoption.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Barry-Wehmiller Companies, Inc.</span>
+        <span class="job-period">Oct 2014 - Oct 2018</span>
+      </div>
+      <div class="job-role">Global Director of Customer Care</div>
+      <ul>
+        <li>Led global IT service transformation standardizing processes across independent business units.</li>
+        <li>Reduced ticket volume by <strong>71%</strong> and <strong>MTTR by 75%</strong> through automation and process re-engineering.</li>
+        <li>Established multi-year enterprise change roadmap aligning technical KPIs with corporate goals.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Lumeris</span>
+        <span class="job-period">Oct 2007 - Oct 2014</span>
+      </div>
+      <div class="job-role">Service Desk Manager &amp; Business Systems Administrator</div>
+      <ul>
+        <li><strong>Healthcare compliance (HIPAA):</strong> Established governance policies, SLAs, and security standards meeting stringent healthcare compliance mandates across US and India operations.</li>
+        <li>Built enterprise data reporting ecosystem from scratch delivering executive-level transparency for regulated platforms.</li>
+        <li>Governed Always-Available service strategies achieving <strong>zero-interruption delivery</strong> for critical financial and HR systems.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="section avoid-break">
+    <div class="section-title">Education</div>
+    <div class="edu-item">
+      <div class="edu-header">
+        <span class="edu-title">Master of Business Administration (MBA) - Information Technology</span>
+        <span class="edu-year">University of Massachusetts Lowell</span>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-header">
+        <span class="edu-title">B.S. Marketing and e-Business Administration</span>
+        <span class="edu-year">University of Phoenix</span>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-header">
+        <span class="edu-title">Graduate Certificate, Systems Models and Management</span>
+        <span class="edu-year">University of Massachusetts Lowell</span>
+      </div>
+    </div>
+  </div>
+  <div class="section avoid-break">
+    <div class="section-title">Certifications</div>
+    <div class="cert-item">
+      <span class="cert-title">Agentic AI Certification</span>
+      <span class="cert-year">DeepLearning.AI, 2025</span>
+    </div>
+    <div class="cert-item">
+      <span class="cert-title">Fundamentals of Agentic AI: Business Implications</span>
+      <span class="cert-year">DeepLearning.AI, 2025</span>
+    </div>
+    <div class="cert-item">
+      <span class="cert-title">Aha! Product Management Professional Certificate</span>
+    </div>
+    <div class="cert-item">
+      <span class="cert-title">ITIL Foundation Certification</span>
+    </div>
+  </div>
+  <div class="section avoid-break">
+    <div class="section-title">Skills</div>
+    <div class="skills-grid">
+      <span class="skill-item"><span class="skill-category">Enterprise:</span> Security Product, Compliance, RBAC, IAM, Audit Logging</span>
+      <span class="skill-item"><span class="skill-category">Frameworks:</span> SOC 2, HIPAA, GDPR, FedRAMP, SOX</span>
+      <span class="skill-item"><span class="skill-category">Platform:</span> Admin Console, Enterprise SSO, API Gateways, Data Residency</span>
+      <span class="skill-item"><span class="skill-category">AI:</span> Agentic AI, LLM Safety, Enterprise AI Deployments</span>
+      <span class="skill-item"><span class="skill-category">Domain:</span> Fintech, Financial Services, Healthcare, Regulated Markets</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

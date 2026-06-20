@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kris Schlatter — CV</title>
+<style>
+  @font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/roboto-latin.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2192, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/roboto-latin-ext.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('./fonts/dm-sans-latin.woff2') format('woff2');
+    font-weight: 100 1000;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2192, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('./fonts/dm-sans-latin-ext.woff2') format('woff2');
+    font-weight: 100 1000;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #1a1a2e;
+    background: #ffffff;
+    padding: 0;
+    margin: 0;
+  }
+  .page { width: 100%; max-width: 8.5in; margin: 0 auto; padding: 2px 0; }
+  .header { margin-bottom: 20px; }
+  .header h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a2e;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+    line-height: 1.1;
+  }
+  .header-gradient {
+    height: 2px;
+    background: linear-gradient(to right, hsl(187, 74%, 32%), hsl(270, 70%, 45%));
+    border-radius: 1px;
+    margin-bottom: 10px;
+  }
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10.5px;
+    line-height: 1.4;
+    color: #555;
+  }
+  .contact-row a { color: #555; text-decoration: none; }
+  .contact-row .separator { color: #ccc; }
+  .section { margin-bottom: 18px; }
+  .section-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: hsl(187, 74%, 32%);
+    border-bottom: 1.5px solid #e2e2e2;
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+  .summary-text { font-size: 11px; line-height: 1.7; color: #2f2f2f; }
+  a { white-space: nowrap; }
+  .competencies-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .competency-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    color: hsl(187, 74%, 28%);
+    background: hsl(187, 40%, 95%);
+    padding: 4px 10px;
+    border-radius: 3px;
+    border: 1px solid hsl(187, 40%, 88%);
+  }
+  .job { margin-bottom: 14px; }
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .job-company {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: hsl(270, 70%, 45%);
+  }
+  .job-period { font-size: 10.5px; color: #777; white-space: nowrap; }
+  .job-role { font-size: 11px; font-weight: 600; color: #333; margin-bottom: 6px; }
+  .job-location { font-size: 10px; color: #888; }
+  .job ul { padding-left: 18px; margin-top: 6px; }
+  .job li { font-size: 10.5px; line-height: 1.6; color: #333; margin-bottom: 4px; }
+  .job li strong { font-weight: 600; }
+  .project { margin-bottom: 12px; }
+  .project-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: hsl(270, 70%, 45%);
+  }
+  .project-desc { font-size: 10.5px; color: #444; margin-top: 3px; line-height: 1.55; }
+  .project-tech { font-size: 9.5px; color: #888; margin-top: 3px; }
+  .edu-item { margin-bottom: 8px; }
+  .edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .edu-title { font-weight: 600; font-size: 11px; color: #333; }
+  .edu-org { color: hsl(270, 70%, 45%); font-weight: 500; }
+  .edu-year { font-size: 10px; color: #777; white-space: nowrap; }
+  .edu-desc { font-size: 10px; color: #666; margin-top: 2px; line-height: 1.5; }
+  .cert-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  .cert-title { font-size: 10.5px; font-weight: 500; color: #333; }
+  .cert-org { color: hsl(270, 70%, 45%); }
+  .cert-year { font-size: 10px; color: #777; white-space: nowrap; }
+  .skills-grid { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+  .skill-item { font-size: 10.5px; color: #444; }
+  .skill-category { font-weight: 600; color: #333; font-size: 10.5px; }
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { padding: 0; }
+  }
+  .avoid-break, .job, .project, .edu-item, .cert-item { break-inside: avoid; page-break-inside: avoid; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header avoid-break">
+    <h1>Kris Schlatter</h1>
+    <div class="header-gradient"></div>
+    <div class="contact-row">
+      <span>schlatter.kris@gmail.com</span>
+      <span class="separator">|</span>
+      <a href="https://www.linkedin.com/in/krisschlatter">linkedin.com/in/krisschlatter</a>
+      <span class="separator">|</span>
+      <a href="https://github.com/schlatterkris">github.com/schlatterkris</a>
+      <span class="separator">|</span>
+      <span>St. Charles, MO</span>
+    </div>
+  </div>
+
+  <div class="section avoid-break">
+    <div class="section-title">Professional Summary</div>
+    <div class="summary-text">Product leader with 15+ years driving user activation, product adoption, and funnel optimization at global scale. MBA in IT. At Mastercard, built unified enablement frameworks that accelerated time-to-market by 15% and revenue-to-feature mapping engines that isolated feature-level profitability. Expert in data-driven experimentation, cross-functional execution, and designing experiences that meet users where they are. Agentic AI certified and passionate about using AI to personalize user journeys.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Core Competencies</div>
+    <div class="competencies-grid">
+      <span class="competency-tag">Product Management</span>
+      <span class="competency-tag">Funnel Optimization</span>
+      <span class="competency-tag">User Activation & Retention</span>
+      <span class="competency-tag">Experimentation & A/B Testing</span>
+      <span class="competency-tag">Data-Driven Strategy</span>
+      <span class="competency-tag">AI-Powered Personalization</span>
+      <span class="competency-tag">Cross-Functional Leadership</span>
+      <span class="competency-tag">Product Analytics</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Professional Experience</div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Mastercard</span>
+        <span class="job-period">January 2020 – Present</span>
+      </div>
+      <div class="job-role">Global Product Integration Director</div>
+      <ul>
+        <li><strong>Product Strategy & Execution:</strong> Served as strategic lynchpin between central Product Development and Regional Delivery teams, transitioning complex fintech solutions into a $1.6+ Billion global market across 5 regions.</li>
+        <li><strong>Activation & Adoption:</strong> Built unified global enablement framework for API-driven solutions that accelerated product delivery and user adoption by 15% across diverse international jurisdictions.</li>
+        <li><strong>Experimentation & Measurement:</strong> Introduced data-driven "Shift-Left" operational model using Tableau, PowerBI, and Jira Product Discovery; built revenue-to-feature tracking engines for granular visibility into feature-level performance and user engagement.</li>
+        <li><strong>User-Centric Design:</strong> Institutionalized continuous global feedback architecture capturing real-world implementation data and transforming it into actionable product priorities.</li>
+        <li><strong>Cross-Functional Alignment:</strong> Led matrixed teams across Product, R&D, Engineering, Legal, Finance, Security, and Regional Delivery to consistently beat launch deadlines.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Barry-Wehmiller Companies, Inc.</span>
+        <span class="job-period">October 2014 – October 2018</span>
+      </div>
+      <div class="job-role">Global Director of Customer Care</div>
+      <ul>
+        <li><strong>Operational Transformation:</strong> Led comprehensive global IT service turnaround, transforming lowest-rated business unit into top-tier corporate partner.</li>
+        <li><strong>Self-Service & Automation:</strong> Designed self-service utilities and automation framework that collapsed ticket volume from 3,500+ to under 1,000 per month.</li>
+        <li><strong>Data-Driven Optimization:</strong> Standardized global processes across independent business units, using data analytics to optimize resource allocation and reallocate 2.0 FTE to strategic initiatives.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Lumeris</span>
+        <span class="job-period">October 2007 – October 2014</span>
+      </div>
+      <div class="job-role">Service Desk Manager & Business Systems Administrator</div>
+      <ul>
+        <li>Modernized legacy call center into proactive, ITSM-aligned service department across US and India.</li>
+        <li>Built enterprise data reporting ecosystem from scratch, delivering executive-level transparency and insights.</li>
+        <li>Drove large-scale software deployments and Go-To-Market evaluations in complex regulatory territories.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section avoid-break">
+    <div class="section-title">Education</div>
+    <div class="edu-item">
+      <div class="edu-header">
+        <span class="edu-title">Master of Business Administration (MBA) – Information Technology</span>
+        <span class="edu-org">University of Massachusetts Lowell</span>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-header">
+        <span class="edu-title">B.S. in Marketing and e-Business Administration</span>
+        <span class="edu-org">University of Phoenix</span>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-header">
+        <span class="edu-title">Graduate Certificate in Systems Models and Management</span>
+        <span class="edu-org">University of Massachusetts Lowell</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section avoid-break">
+    <div class="section-title">Certifications</div>
+    <div class="cert-item">
+      <span class="cert-title">Agentic AI Certification</span>
+      <span class="cert-org">DeepLearning.AI</span>
+      <span class="cert-year">2025</span>
+    </div>
+    <div class="cert-item">
+      <span class="cert-title">Fundamentals of Agentic AI: Business Implications</span>
+      <span class="cert-org">DeepLearning.AI</span>
+      <span class="cert-year">2025</span>
+    </div>
+    <div class="cert-item">
+      <span class="cert-title">Aha! Product Management Professional Certificate</span>
+      <span class="cert-org">Aha!</span>
+      <span class="cert-year">2024</span>
+    </div>
+    <div class="cert-item">
+      <span class="cert-title">ITIL Foundation Certification</span>
+      <span class="cert-org"></span>
+      <span class="cert-year"></span>
+    </div>
+  </div>
+
+  <div class="section avoid-break">
+    <div class="section-title">Skills</div>
+    <div class="skills-grid">
+      <span class="skill-category">Product:</span>
+      <span class="skill-item">Roadmapping, PRDs, A/B Testing, User Research, Metrics Definition, Experiment Design</span>
+      <span class="skill-category">Data:</span>
+      <span class="skill-item">Tableau, PowerBI, Jira Product Discovery, SQL, Funnel Analytics</span>
+      <span class="skill-category">Growth:</span>
+      <span class="skill-item">Activation Funnels, Retention Loops, Personalization, Self-Service Design</span>
+      <span class="skill-category">Methods:</span>
+      <span class="skill-item">Agile, Lean, Shift-Left, Experiment-Driven Development, Cross-Functional Leadership</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

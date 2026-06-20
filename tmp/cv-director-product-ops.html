@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kris Schlatter - Director of Product Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyan: hsl(187, 74%, 32%);
+            --purple: hsl(270, 70%, 45%);
+            --text: #1a1a2e;
+            --bg: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            line-height: 1.5;
+            color: var(--text);
+            background: var(--bg);
+            padding: 0.6in;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid;
+            border-image: linear-gradient(90deg, var(--cyan), var(--purple)) 1;
+            padding-bottom: 12px;
+            margin-bottom: 16px;
+        }
+        .name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text);
+        }
+        .contact {
+            text-align: right;
+            font-size: 10px;
+        }
+        .contact a { color: var(--cyan); text-decoration: none; }
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--cyan);
+            margin: 16px 0 8px 0;
+            letter-spacing: 0.5px;
+        }
+        .summary {
+            font-size: 11px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        .competencies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+        .competency-tag {
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 9px;
+            font-weight: 500;
+        }
+        .job {
+            margin-bottom: 14px;
+        }
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+        .company {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            color: var(--purple);
+        }
+        .role {
+            font-weight: 500;
+            font-size: 11px;
+        }
+        .dates {
+            font-size: 10px;
+            color: #666;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        li {
+            position: relative;
+            padding-left: 14px;
+            margin-bottom: 4px;
+        }
+        li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+            font-weight: bold;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+        .skill-item {
+            font-size: 10px;
+        }
+        .education-item {
+            margin-bottom: 8px;
+        }
+        .degree {
+            font-weight: 600;
+            font-size: 11px;
+        }
+        .school {
+            color: var(--purple);
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <div class="name">KRIS SCHLATTER</div>
+        </div>
+        <div class="contact">
+            schlatter.kris@gmail.com<br>
+            linkedin.com/in/krisschlatter<br>
+            St. Charles, MO
+        </div>
+    </div>
+
+    <h2>Professional Summary</h2>
+    <p class="summary">
+        Product leader with 20+ years driving complex platforms from concept through launch. Expert at aligning engineering, sales, and customer needs to deliver products that work reliably at scale. Track record of building dashboards that turn raw data into clear priorities, reducing time-to-market while keeping systems running at 99.999% availability. Known for mentoring teams, turning around underperforming operations, and building consensus across technical and executive stakeholders.
+    </p>
+
+    <h2>Core Competencies</h2>
+    <div class="competencies">
+        <span class="competency-tag">Product Strategy & Roadmap</span>
+        <span class="competency-tag">Enterprise GTM</span>
+        <span class="competency-tag">Technical Depth</span>
+        <span class="competency-tag">Team Leadership</span>
+        <span class="competency-tag">Data & Metrics</span>
+        <span class="competency-tag">Cross-Functional Delivery</span>
+    </div>
+
+    <h2>Professional Experience</h2>
+
+    <div class="job">
+        <div class="job-header">
+            <div><span class="company">Mastercard</span> — O'Fallon, MO</div>
+            <div class="dates">2020 – 2026</div>
+        </div>
+        <div class="role">Global Product Integrator</div>
+        <ul>
+            <li>Built global feedback systems that turned implementation data into clear priorities for the product roadmap</li>
+            <li>Moved testing and validation earlier in the process, cutting time-to-value by 6 months</li>
+            <li>Led international rollout of payment solutions across 4 regions, reducing go-to-market time by 15%</li>
+            <li>Served as strategic lynchpin between engineering and regional leadership, negotiating priorities to keep critical payment systems running without interruption</li>
+            <li>Maintained 99.999% uptime for cloud-based payment platforms serving millions of users</li>
+        </ul>
+    </div>
+
+    <div class="job">
+        <div class="job-header">
+            <div><span class="company">Barry-Wehmiller</span> — St. Louis, MO</div>
+            <div class="dates">2014 – 2019</div>
+        </div>
+        <div class="role">Global Director Customer Care</div>
+        <ul>
+            <li>Turned around lowest-rated IT team into top performer by aligning what we shipped with what customers actually needed</li>
+            <li>Cut support tickets by 60% and reduced recovery time from outages by 75%</li>
+            <li>Built dashboards that gave executives real-time visibility into system performance</li>
+            <li>Consolidated support operations across 14 subsidiaries into one unified model</li>
+            <li>Managed and developed teams across multiple countries</li>
+        </ul>
+    </div>
+
+    <div class="job">
+        <div class="job-header">
+            <div><span class="company">Essence Healthcare</span> — St. Louis, MO</div>
+            <div class="dates">2007 – 2014</div>
+        </div>
+        <div class="role">Service Desk Manager</div>
+        <ul>
+            <li>Analyzed market data to recommend shift to higher-growth territories</li>
+            <li>Built tracking systems that gave leadership clear visibility into service levels</li>
+            <li>Kept critical healthcare platforms running 24/7 for hospitals and clinics</li>
+        </ul>
+    </div>
+
+    <div class="job">
+        <div class="job-header">
+            <div><span class="company">Misys Healthcare Systems</span> — Raleigh, NC</div>
+            <div class="dates">2004 – 2007</div>
+        </div>
+        <div class="role">Account Manager Hospital Systems</div>
+        <ul>
+            <li>Managed large hospital accounts through planning, implementation, and ongoing support</li>
+            <li>Recovered accounts at risk of leaving by addressing their specific concerns</li>
+            <li>Explained technical capabilities to hospital administrators in terms they could act on</li>
+            <li>Led training sessions for new software at customer sites and industry events</li>
+        </ul>
+    </div>
+
+    <h2>Education</h2>
+    <div class="education-item">
+        <div class="degree">Graduate Certificate, System Models & Management</div>
+        <div class="school">University of Massachusetts — Lowell, MA</div>
+    </div>
+    <div class="education-item">
+        <div class="degree">M.B.A., Information Technology</div>
+        <div class="school">University of Massachusetts — Lowell, MA</div>
+    </div>
+    <div class="education-item">
+        <div class="degree">B.S.B.A, e-Business Administration & Marketing</div>
+        <div class="school">University of Phoenix — Phoenix, AZ</div>
+    </div>
+
+    <h2>Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-item">• Product Roadmap & Prioritization</div>
+        <div class="skill-item">• Executive Communication</div>
+        <div class="skill-item">• Dashboard & Metrics Design</div>
+        <div class="skill-item">• Team Mentorship</div>
+        <div class="skill-item">• Vendor & Partner Relations</div>
+        <div class="skill-item">• ITSM & Service Operations</div>
+    </div>
+</body>
+</html>
