@@ -124,8 +124,8 @@ npx playwright install chromium
 Replace `YOUR_USERNAME` below:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/career-ops.git
-cd career-ops
+git clone https://github.com/schlatterkris/CFOSearch
+cd CFOSearch
 ```
 
 Install npm dependencies:
@@ -146,37 +146,32 @@ This checks that all files and dependencies are in place. If anything is missing
 
 ---
 
-## 9. Configure Your Profile
-
-Copy the example profile and edit it with your details:
-
-```bash
-cp config/profile.example.yml config/profile.yml
-```
-
-Open the file and fill in your name, email, location, compensation targets, and preferences.
-
-Then create your CV:
+## 9. Validate Your Profile
+I preconfigured the profile and your CV for you so it should be good to start.  You can view and verify it at
+:
 
 ```bash
-# Create cv.md with your resume in markdown format
-# You can use the example as a starting point:
-cp examples/cv-example.md cv.md
+config/profile.yml
+cv.md
 ```
 
-Edit `cv.md` with your actual experience.
+Edit `cv.md` with any other actual experience.
 
----
 
-## 10. Configure Portals
-
-Copy the portal configuration:
+## 10. Start Using opencode
 
 ```bash
-cp templates/portals.example.yml portals.yml
+cd career-ops
+opencode
 ```
 
-Edit `portals.yml` to add/remove companies you want to scan.
+This launches the interactive CLI. Type your requests directly — for example:
+
+- "Evaluate this job URL: https://..."
+- "Run a batch scan of all portals"
+- "Show me my pipeline summary"
+
+Using opencode allows you to interact in a natural way so instead of remembering the commands below you can just ask it to "run a scan" "Start the web dashboard" etc.  This with ollama will allow you to interact with it like you would a person.  Just start a command line screen -> navigate to the CFOSearch folder with everything in it -> type opencode.  Now you can just ask it questions in no particular format.
 
 ---
 
@@ -211,21 +206,6 @@ npm run pdf
 ```
 
 Creates an ATS-optimized PDF in the `output/` directory.
-
----
-
-## 14. Start Using opencode
-
-```bash
-cd career-ops
-opencode
-```
-
-This launches the interactive CLI. Type your requests directly — for example:
-
-- "Evaluate this job URL: https://..."
-- "Run a batch scan of all portals"
-- "Show me my pipeline summary"
 
 ---
 
