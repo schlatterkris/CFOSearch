@@ -175,6 +175,32 @@ Using opencode allows you to interact in a natural way so instead of remembering
 
 ---
 
+## Data Layers
+
+The project separates your personal data from system files so updates never overwrite your work.
+
+**User Layer** (never touched by updates) — your CV, profile, tracker entries, reports, PDFs, and any file you customize:
+
+| File | Purpose |
+|------|---------|
+| `cv.md` | Your CV |
+| `config/profile.yml` | Your identity, targets, comp range |
+| `portals.yml` | Your customized company list |
+| `data/applications.md` | Application tracker |
+| `data/pipeline.md` | URL inbox |
+| `data/scan-history.tsv` | Scan history |
+| `reports/*` | Evaluation reports |
+| `output/*` | Generated PDFs |
+| `jds/*` | Saved job descriptions |
+| `interview-prep/*` | Interview prep materials |
+
+**System Layer** (safe to auto-update) — scripts, templates, modes, dashboard, and docs. These can be safely replaced with new versions from the upstream repo.
+
+**The golden rule:** User files are never read, modified, or deleted by any update process. See [`DATA_CONTRACT.md`](DATA_CONTRACT.md) for the full list.
+
+---
+
+
 ## 11. Run a Scan
 
 ```bash

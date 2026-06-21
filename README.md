@@ -79,6 +79,29 @@ career-ops/
 └── docs/                        # Full documentation
 ```
 
+## Data Layers
+
+Personal data and system files are strictly separated so updates never overwrite your work.
+
+**User Layer** (never auto-updated) — your CV, profile, tracker, reports, PDFs:
+
+| Path | Purpose |
+|------|---------|
+| `cv.md` | Your CV |
+| `config/profile.yml` | Identity, targets, comp range |
+| `portals.yml` | Company list |
+| `data/applications.md` | Application tracker |
+| `data/pipeline.md` | URL inbox |
+| `data/scan-history.tsv` | Scan history |
+| `reports/*` | Evaluation reports |
+| `output/*` | Generated PDFs |
+| `jds/*` | Saved job descriptions |
+| `interview-prep/*` | Interview materials |
+
+**System Layer** (safe to auto-update) — scripts, templates, modes, dashboard, docs.
+
+**The rule:** User files are never modified by updates. See [`DATA_CONTRACT.md`](DATA_CONTRACT.md) for the full list.
+
 ## Project Info
 
 - **Author**: Santiago Fernández de Valderrama ([santifer.io](https://santifer.io))
